@@ -1,7 +1,7 @@
 {
   "name": "angular-file-upload",
   "private": false, 
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "Angular file upload directives",
   "scripts": {
     "compile": "concurrently \"typings install --save\" \"tsc\"",
