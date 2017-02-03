@@ -17,7 +17,7 @@
   "license": "MIT",
   "repository": {
     "type": "git",
-    "url": "https://github.com/seven-cd/angular-file-upload.git"
+    "url": "https://github.com/seven-cd/ng2-file-upload.git"
   },
   "peerDependencies": {
     "@angular/common": "^2.0.0-rc.1",
