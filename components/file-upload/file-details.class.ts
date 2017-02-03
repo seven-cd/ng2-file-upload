@@ -16,7 +16,6 @@ export class FileDetails {
     if (!imageExist) {
       this.fileType = 'file';
       this.fileUrl = '';
-      console.log('File is not image!');
     } else {
       this.getImageDetails();
     }
@@ -33,11 +32,16 @@ export class FileDetails {
     reader.onload = ((image:any) => {
       return (e:any) => {
         image.onload= () => {
-          let canvas = document.createElement('canvas');
-          let ctx = canvas.getContext('2d');
-          ctx.drawImage(image, 0, 0);
+          let canvas = document.createElement('canvas'),
+            ctx = canvas.getContext('2d'),
+            width = image.width,
+            height = image.height;
+
+          canvas.width = width;
+          canvas.height = height;
+          ctx.drawImage(image, 0, 0, width, height);
           this.fileType = 'image';
-          this.fileUrl = canvas.toDataURL('image/jpeg');
+          this.fileUrl = canvas.toDataURL('image/png');
         };
         image.src = e.target.result;
       };

@@ -10,7 +10,6 @@ var FileDetails = (function () {
         if (!imageExist) {
             this.fileType = 'file';
             this.fileUrl = '';
-            console.log('File is not image!');
         }
         else {
             this.getImageDetails();
@@ -26,11 +25,12 @@ var FileDetails = (function () {
         reader.onload = (function (image) {
             return function (e) {
                 image.onload = function () {
-                    var canvas = document.createElement('canvas');
-                    var ctx = canvas.getContext('2d');
-                    ctx.drawImage(image, 0, 0);
+                    var canvas = document.createElement('canvas'), ctx = canvas.getContext('2d'), width = image.width, height = image.height;
+                    canvas.width = width;
+                    canvas.height = height;
+                    ctx.drawImage(image, 0, 0, width, height);
                     _this.fileType = 'image';
-                    _this.fileUrl = canvas.toDataURL('image/jpeg');
+                    _this.fileUrl = canvas.toDataURL('image/png');
                 };
                 image.src = e.target.result;
             };
