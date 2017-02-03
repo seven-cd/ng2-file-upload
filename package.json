@@ -1,5 +1,6 @@
 {
   "name": "angular-file-upload",
+  "private": false, 
   "version": "1.0.0",
   "description": "Angular file upload directives",
   "scripts": {
