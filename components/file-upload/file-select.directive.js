@@ -45,7 +45,7 @@ var FileSelectDirective = (function () {
         __metadata('design:returntype', Object)
     ], FileSelectDirective.prototype, "onChange", null);
     FileSelectDirective = __decorate([
-        core_1.Directive({ selector: '[ng2FileSelect]' }), 
+        core_1.Directive({ selector: '[fileSelect]' }), 
         __metadata('design:paramtypes', [core_1.ElementRef])
     ], FileSelectDirective);
     return FileSelectDirective;

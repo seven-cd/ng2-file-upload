@@ -17,6 +17,6 @@
   ],
   "files": [
     "./typings/browser.d.ts",
-    "./ng2-file-upload.ts"
+    "./file-upload.ts"
   ]
 }

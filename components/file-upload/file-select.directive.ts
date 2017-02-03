@@ -1,10 +1,10 @@
 import { Directive, ElementRef, Input, HostListener } from '@angular/core';
 
-import {FileUploader} from './file-uploader.class';
+import { FileUploader } from './file-uploader.class';
 
 // todo: filters
 
-@Directive({selector: '[ng2FileSelect]'})
+@Directive({selector: '[fileSelect]'})
 export class FileSelectDirective {
   @Input() public uploader:FileUploader;
 

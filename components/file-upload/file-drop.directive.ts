@@ -2,7 +2,7 @@ import { Directive, EventEmitter, ElementRef, HostListener, Input, Output } from
 
 import { FileUploader } from './file-uploader.class';
 
-@Directive({selector: '[ng2FileDrop]'})
+@Directive({selector: '[fileDrop]'})
 export class FileDropDirective {
   @Input() public uploader:FileUploader;
   @Output() public fileOver:EventEmitter<any> = new EventEmitter();

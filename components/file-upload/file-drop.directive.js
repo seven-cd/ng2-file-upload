@@ -102,7 +102,7 @@ var FileDropDirective = (function () {
         __metadata('design:returntype', Object)
     ], FileDropDirective.prototype, "onDragLeave", null);
     FileDropDirective = __decorate([
-        core_1.Directive({ selector: '[ng2FileDrop]' }), 
+        core_1.Directive({ selector: '[fileDrop]' }), 
         __metadata('design:paramtypes', [core_1.ElementRef])
     ], FileDropDirective);
     return FileDropDirective;
