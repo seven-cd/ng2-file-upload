@@ -31,7 +31,7 @@ export class FileDetails {
     let reader = new FileReader();
 
     reader.onload = ((image:any) => {
-      return (e:Event) => {
+      return (e:any) => {
         image.onload= () => {
           let canvas = document.createElement('canvas');
           let ctx = canvas.getContext('2d');
