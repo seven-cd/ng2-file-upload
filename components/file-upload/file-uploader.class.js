@@ -23,15 +23,27 @@ var FileUploader = (function () {
         this.options = Object.assign(this.options, options);
         this.authToken = options.authToken;
         this.autoUpload = options.autoUpload;
-        this.options.filters.unshift({ name: 'queueLimit', fn: this._queueLimitFilter });
+        this.options.filters.unshift({
+            name: 'queueLimit',
+            fn: this._queueLimitFilter
+        });
         if (this.options.maxFileSize) {
-            this.options.filters.unshift({ name: 'fileSize', fn: this._fileSizeFilter });
+            this.options.filters.unshift({
+                name: 'fileSize',
+                fn: this._fileSizeFilter
+            });
         }
         if (this.options.allowedFileType) {
-            this.options.filters.unshift({ name: 'fileType', fn: this._fileTypeFilter });
+            this.options.filters.unshift({
+                name: 'fileType',
+                fn: this._fileTypeFilter
+            });
         }
         if (this.options.allowedMimeType) {
-            this.options.filters.unshift({ name: 'mimeType', fn: this._mimeTypeFilter });
+            this.options.filters.unshift({
+                name: 'mimeType',
+                fn: this._mimeTypeFilter
+            });
         }
         // this.options.filters.unshift({name: 'folder', fn: this._folderFilter});
     };
@@ -142,37 +154,75 @@ var FileUploader = (function () {
          });*/
     };
     FileUploader.prototype.onAfterAddingAll = function (fileItems) {
-        return { fileItems: fileItems };
+        return {
+            fileItems: fileItems
+        };
     };
     FileUploader.prototype.onBuildItemForm = function (fileItem, form) {
-        return { fileItem: fileItem, form: form };
+        return {
+            fileItem: fileItem,
+            form: form
+        };
     };
     FileUploader.prototype.onAfterAddingFile = function (fileItem) {
-        return { fileItem: fileItem };
+        return {
+            fileItem: fileItem
+        };
     };
     FileUploader.prototype.onWhenAddingFileFailed = function (item, filter, options) {
-        return { item: item, filter: filter, options: options };
+        return {
+            item: item,
+            filter: filter,
+            options: options
+        };
     };
     FileUploader.prototype.onBeforeUploadItem = function (fileItem) {
-        return { fileItem: fileItem };
+        return {
+            fileItem: fileItem
+        };
     };
     FileUploader.prototype.onProgressItem = function (fileItem, progress) {
-        return { fileItem: fileItem, progress: progress };
+        return {
+            fileItem: fileItem,
+            progress: progress
+        };
     };
     FileUploader.prototype.onProgressAll = function (progress) {
-        return { progress: progress };
+        return {
+            progress: progress
+        };
     };
     FileUploader.prototype.onSuccessItem = function (item, response, status, headers) {
-        return { item: item, response: response, status: status, headers: headers };
+        return {
+            item: item,
+            response: response,
+            status: status,
+            headers: headers
+        };
     };
     FileUploader.prototype.onErrorItem = function (item, response, status, headers) {
-        return { item: item, response: response, status: status, headers: headers };
+        return {
+            item: item,
+            response: response,
+            status: status,
+            headers: headers
+        };
     };
     FileUploader.prototype.onCancelItem = function (item, response, status, headers) {
-        return { item: item, response: response, status: status, headers: headers };
+        return {
+            item: item,
+            response: response,
+            status: status,
+            headers: headers
+        };
     };
     FileUploader.prototype.onCompleteItem = function (item, response, status, headers) {
-        return { item: item, response: response, status: status, headers: headers };
+        return {
+            item: item,
+            response: response,
+            status: status,
+            headers: headers
+        };
     };
     FileUploader.prototype.onCompleteAll = function () {
         return void 0;

@@ -10,7 +10,6 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 };
 var core_1 = require('@angular/core');
 var file_uploader_class_1 = require('./file-uploader.class');
-// todo: filters
 var FileSelectDirective = (function () {
     function FileSelectDirective(element) {
         this.element = element;

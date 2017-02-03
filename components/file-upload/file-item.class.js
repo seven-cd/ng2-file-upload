@@ -25,7 +25,9 @@ var FileItem = (function () {
         this.fileDetails = new file_details_class_1.FileDetails(some);
         this._file = some;
         this.url = uploader.options.url;
-        this._zone = new core_1.NgZone({ enableLongStackTrace: false });
+        this._zone = new core_1.NgZone({
+            enableLongStackTrace: false
+        });
     }
     FileItem.prototype.upload = function () {
         try {
@@ -46,22 +48,42 @@ var FileItem = (function () {
         return void 0;
     };
     FileItem.prototype.onBuildForm = function (form) {
-        return { form: form };
+        return {
+            form: form
+        };
     };
     FileItem.prototype.onProgress = function (progress) {
-        return { progress: progress };
+        return {
+            progress: progress
+        };
     };
     FileItem.prototype.onSuccess = function (response, status, headers) {
-        return { response: response, status: status, headers: headers };
+        return {
+            response: response,
+            status: status,
+            headers: headers
+        };
     };
     FileItem.prototype.onError = function (response, status, headers) {
-        return { response: response, status: status, headers: headers };
+        return {
+            response: response,
+            status: status,
+            headers: headers
+        };
     };
     FileItem.prototype.onCancel = function (response, status, headers) {
-        return { response: response, status: status, headers: headers };
+        return {
+            response: response,
+            status: status,
+            headers: headers
+        };
     };
     FileItem.prototype.onComplete = function (response, status, headers) {
-        return { response: response, status: status, headers: headers };
+        return {
+            response: response,
+            status: status,
+            headers: headers
+        };
     };
     FileItem.prototype._onBeforeUpload = function () {
         this.isReady = true;
