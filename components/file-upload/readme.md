@@ -1,6 +1,6 @@
 ### Usage
 ```typescript
-import {FileSelectDirective, FileDropDirective, FileUploader} from 'angular-file-upload/file-upload';
+import {FileSelectDirective, FileDropDirective, FileUploader} from 'ng2-file-upload/file-upload';
 ```
 
 ### Annotations

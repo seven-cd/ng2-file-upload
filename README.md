@@ -1,14 +1,14 @@
-# angular-file-upload 
+# ng2-file-upload
 
 ## Quick start
 
-1. A recommended way to install ***angular-file-upload*** is through npm package manager using the following command:
+1. A recommended way to install ***ng2-file-upload*** is through npm package manager using the following command:
 
-  `npm i angular-file-upload --save`
+  `npm i ng2-file-upload --save`
 
   Alternatively, you can download it in a ZIP file.
 
-2. Currently `angular-file-upload` contains two directives: `angular-file-select` and `angular-file-drop`. `angular-file-select` is used for 'file-input' field of form and `angular-file-drop` is used for area that will be used for dropping of file or files.
+2. Currently `ng2-file-upload` contains two directives: `angular-file-select` and `angular-file-drop`. `angular-file-select` is used for 'file-input' field of form and `angular-file-drop` is used for area that will be used for dropping of file or files.
 
 ## API for `fileSelect`
 
