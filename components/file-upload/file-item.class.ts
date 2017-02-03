@@ -2,10 +2,12 @@ import {NgZone} from '@angular/core';
 
 import {FileLikeObject} from './file-like-object.class';
 import {FileUploader} from './file-uploader.class';
+import {FileDetails} from './file-details.class';
 
 export class FileItem {
   public file:FileLikeObject;
   public _file:File;
+  public fileDetails:FileDetails;
   public alias:string = 'file';
   public url:string = '/';
   public method:string = 'POST';
@@ -31,6 +33,7 @@ export class FileItem {
     this.some = some;
     this.options = options;
     this.file = new FileLikeObject(some);
+    this.fileDetails = new FileDetails(some);
     this._file = some;
     this.url = uploader.options.url;
     this._zone = new NgZone({ enableLongStackTrace: false });
