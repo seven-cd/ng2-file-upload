@@ -1,3 +1,9 @@
+## 2.0.1 (2017-03-02)
+
+### BUG FIXES
+
+- Fix canvas size (e9ff7b552657be76c92b2027f27a2cc3416ad22f)
+
 ## 2.0.0 (2017-03-02)
 
 - Bump version
