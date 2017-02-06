@@ -21,7 +21,7 @@ export class FileLikeObject {
         return name.split('.')[0];
     }
 
-    public _createFromFakePath(path: string): void {
+    private _createFromFakePath(path: string): void {
         this.lastModifiedDate = void 0;
         this.size = void 0;
         this.type = 'like/' + path.slice(path.lastIndexOf('.') + 1).toLowerCase();
@@ -29,7 +29,7 @@ export class FileLikeObject {
         this.title = FileLikeObject.stripExtension(this.name);
     }
 
-    public _createFromObject(object: {
+    private _createFromObject(object: {
         size: number,
         type: string,
         name: string

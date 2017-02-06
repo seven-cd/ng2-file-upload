@@ -45,9 +45,6 @@ var FileUploader = (function () {
                 fn: this._mimeTypeFilter
             });
         }
-        if (this.options.formData) {
-            this.formData = this.options.formData;
-        }
     };
     FileUploader.prototype.addToQueue = function (files, options, filters) {
         var _this = this;
@@ -274,10 +271,11 @@ var FileUploader = (function () {
         }
         this._onBuildItemForm(item, form);
         form.append(item.alias, item._file, item.file.name);
-        for (var i = 0; i < this.formData.length; i++) {
-            var key = this.formData[i];
-            if (item.file[key]) {
-                form.append(key, item.file[key]);
+        for (var key in item.file) {
+            var prop = item.file[key];
+            if (typeof prop !== 'function' && !item._file[key]) {
+                console.log(key);
+                form.append(key, prop);
             }
         }
         xhr.upload.onprogress = function (event) {

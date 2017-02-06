@@ -19,7 +19,6 @@ export interface FileUploaderOptions {
     filters ? : Array < any > ;
     headers ? : Array < Headers > ;
     maxFileSize ? : number;
-    formData ? : Array < string >;
     queueLimit ? : number;
     removeAfterUpload ? : boolean;
     url ? : string;
@@ -33,7 +32,6 @@ export class FileUploader {
     public progress: number = 0;
     public _nextIndex: number = 0;
     public autoUpload: any;
-    public formData : Array < string >;
 
     public options: FileUploaderOptions = {
         autoUpload: false,
@@ -77,10 +75,6 @@ export class FileUploader {
                 name: 'mimeType',
                 fn: this._mimeTypeFilter
             });
-        }
-
-        if(this.options.formData) {
-            this.formData = this.options.formData;
         }
     }
 
@@ -337,10 +331,11 @@ export class FileUploader {
         }
         this._onBuildItemForm(item, form);
         form.append(item.alias, item._file, item.file.name);
-        for (let i = 0; i < this.formData. length; i++) {
-            let key = this.formData[i];
-            if(item.file[key]) {
-                form.append(key, item.file[key]);
+
+        for(let key in item.file) {
+            let prop = item.file[key];
+            if (typeof prop !== 'function' && !item._file[key]) {
+                form.append(key, prop);
             }
         }
         xhr.upload.onprogress = (event: any) => {

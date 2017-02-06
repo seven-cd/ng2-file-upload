@@ -6,10 +6,6 @@ export declare class FileLikeObject {
     title: string;
     constructor(fileOrInput: any);
     static stripExtension(name: string): string;
-    _createFromFakePath(path: string): void;
-    _createFromObject(object: {
-        size: number;
-        type: string;
-        name: string;
-    }): void;
+    private _createFromFakePath(path);
+    private _createFromObject(object);
 }

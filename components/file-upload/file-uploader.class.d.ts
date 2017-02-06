@@ -11,7 +11,6 @@ export interface FileUploaderOptions {
     filters?: Array<any>;
     headers?: Array<Headers>;
     maxFileSize?: number;
-    formData?: Array<string>;
     queueLimit?: number;
     removeAfterUpload?: boolean;
     url?: string;
@@ -23,7 +22,6 @@ export declare class FileUploader {
     progress: number;
     _nextIndex: number;
     autoUpload: any;
-    formData: Array<string>;
     options: FileUploaderOptions;
     private _failFilterIndex;
     constructor(options: any);
