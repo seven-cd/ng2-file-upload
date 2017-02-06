@@ -76,8 +76,6 @@ export class FileUploader {
                 fn: this._mimeTypeFilter
             });
         }
-
-        // this.options.filters.unshift({name: 'folder', fn: this._folderFilter});
     }
 
     public addToQueue(files: any[], options ? : any, filters ? : any): void {
@@ -328,18 +326,18 @@ export class FileUploader {
         let xhr = item._xhr = new XMLHttpRequest();
         let form = new FormData();
         this._onBeforeUploadItem(item);
-        // todo
-        /*item.formData.map(obj => {
-         obj.map((value, key) => {
-         form.append(key, value);
-         });
-         });*/
         if (typeof item._file.size !== 'number') {
             throw new TypeError('The file specified is no longer valid');
         }
         this._onBuildItemForm(item, form);
-
         form.append(item.alias, item._file, item.file.name);
+
+        for(let key in item.file) {
+            let prop = item.file[key];
+            if (typeof prop !== 'function' && !item._file[key]) {
+                form.append(key, prop);
+            }
+        }
         xhr.upload.onprogress = (event: any) => {
             let progress = Math.round(event.lengthComputable ? event.loaded * 100 / event.total : 0);
             this._onProgressItem(item, progress);

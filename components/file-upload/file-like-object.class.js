@@ -10,16 +10,21 @@ var FileLikeObject = (function () {
         var method = '_createFrom' + postfix;
         this[method](fakePathOrObject);
     }
+    FileLikeObject.stripExtension = function (name) {
+        return name.split('.')[0];
+    };
     FileLikeObject.prototype._createFromFakePath = function (path) {
         this.lastModifiedDate = void 0;
         this.size = void 0;
         this.type = 'like/' + path.slice(path.lastIndexOf('.') + 1).toLowerCase();
         this.name = path.slice(path.lastIndexOf('/') + path.lastIndexOf('\\') + 2);
+        this.title = FileLikeObject.stripExtension(this.name);
     };
     FileLikeObject.prototype._createFromObject = function (object) {
         this.size = object.size;
         this.type = object.type;
         this.name = object.name;
+        this.title = FileLikeObject.stripExtension(this.name);
     };
     return FileLikeObject;
 }());

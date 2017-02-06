@@ -26,7 +26,19 @@
 
   1. `url` - URL of File Uploader's route
   2. `authToken` - Auth token that will be applied as 'Authorization' header during file send.
+  3. `formData` - Global props which will be passed as part of upload request
 
 ### Events
 
   - `fileOver` - it fires during 'over' and 'out' events for Drop Area; returns `boolean`: `true` if file is over Drop Area, `false` in case of out.
+
+### SystemJS Configutation
+
+  In order to use this module inside your Angular project, set the SystemJS config:
+
+```
+  ng2-file-upload: {
+      main: 'file-upload.js',
+      defaultExtension: 'js'
+  }
+```

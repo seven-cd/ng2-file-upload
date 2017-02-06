@@ -7,6 +7,7 @@ export class FileLikeObject {
     public size: any;
     public type: string;
     public name: string;
+    public title: string;
 
     public constructor(fileOrInput: any) {
         let isInput = isElement(fileOrInput);
@@ -16,14 +17,19 @@ export class FileLikeObject {
         (this as any)[method](fakePathOrObject);
     }
 
-    public _createFromFakePath(path: string): void {
+    static stripExtension(name: string): string {
+        return name.split('.')[0];
+    }
+
+    private _createFromFakePath(path: string): void {
         this.lastModifiedDate = void 0;
         this.size = void 0;
         this.type = 'like/' + path.slice(path.lastIndexOf('.') + 1).toLowerCase();
         this.name = path.slice(path.lastIndexOf('/') + path.lastIndexOf('\\') + 2);
+        this.title = FileLikeObject.stripExtension(this.name);
     }
 
-    public _createFromObject(object: {
+    private _createFromObject(object: {
         size: number,
         type: string,
         name: string
@@ -31,5 +37,6 @@ export class FileLikeObject {
         this.size = object.size;
         this.type = object.type;
         this.name = object.name;
+        this.title = FileLikeObject.stripExtension(this.name);
     }
 }

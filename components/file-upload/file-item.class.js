@@ -140,8 +140,14 @@ var FileItem = (function () {
     };
     FileItem.prototype._onComplete = function (response, status, headers) {
         this.onComplete(response, status, headers);
-        if (this.uploader.options.removeAfterUpload) {
+        if (this.uploader.options.removeAfterUpload && status < 400) {
             this.remove();
+        }
+        else if (status >= 400 && response) {
+            if (typeof response === 'string') {
+                response = JSON.parse(response);
+            }
+            this.errorMessage = response.message || response.data.message;
         }
     };
     FileItem.prototype._prepareToUploading = function () {
