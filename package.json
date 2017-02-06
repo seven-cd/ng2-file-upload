@@ -27,11 +27,11 @@
     "registry": "https://npm.nsoft.ba"
   },
   "devDependencies": {
-    "@angular/common": "^2.0.0-rc.1",
-    "@angular/compiler": "^2.0.0-rc.1",
-    "@angular/core": "^2.0.0-rc.1",
-    "@angular/platform-browser": "^2.0.0-rc.1",
-    "@angular/platform-browser-dynamic": "^2.0.0-rc.1",
+    "@angular/common": "~2.4.5",
+    "@angular/compiler": "~2.4.5",
+    "@angular/core": "~2.4.5",
+    "@angular/platform-browser": "~2.4.5",
+    "@angular/platform-browser-dynamic": "~2.4.5",
     "async": "1.5.2",
     "es6-promise": "3.1.2",
     "es6-shim": "0.35.0",
