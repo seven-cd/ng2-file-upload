@@ -10,6 +10,7 @@ export declare class FileItem {
     method: string;
     headers: any;
     withCredentials: boolean;
+    errorMessage: string;
     formData: any;
     isReady: boolean;
     isUploading: boolean;

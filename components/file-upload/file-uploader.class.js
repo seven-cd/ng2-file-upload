@@ -45,7 +45,9 @@ var FileUploader = (function () {
                 fn: this._mimeTypeFilter
             });
         }
-        // this.options.filters.unshift({name: 'folder', fn: this._folderFilter});
+        if (this.options.formData) {
+            this.formData = this.options.formData;
+        }
     };
     FileUploader.prototype.addToQueue = function (files, options, filters) {
         var _this = this;
@@ -267,17 +269,17 @@ var FileUploader = (function () {
         var xhr = item._xhr = new XMLHttpRequest();
         var form = new FormData();
         this._onBeforeUploadItem(item);
-        // todo
-        /*item.formData.map(obj => {
-         obj.map((value, key) => {
-         form.append(key, value);
-         });
-         });*/
         if (typeof item._file.size !== 'number') {
             throw new TypeError('The file specified is no longer valid');
         }
         this._onBuildItemForm(item, form);
         form.append(item.alias, item._file, item.file.name);
+        for (var i = 0; i < this.formData.length; i++) {
+            var key = this.formData[i];
+            if (item.file[key]) {
+                form.append(key, item.file[key]);
+            }
+        }
         xhr.upload.onprogress = function (event) {
             var progress = Math.round(event.lengthComputable ? event.loaded * 100 / event.total : 0);
             _this._onProgressItem(item, progress);

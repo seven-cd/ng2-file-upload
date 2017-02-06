@@ -13,6 +13,7 @@ export class FileItem {
     public method: string = 'POST';
     public headers: any = [];
     public withCredentials: boolean = true;
+    public errorMessage: string;
     public formData: any = [];
     public isReady: boolean = false;
     public isUploading: boolean = false;
@@ -167,8 +168,13 @@ export class FileItem {
     public _onComplete(response: any, status: any, headers: any): void {
         this.onComplete(response, status, headers);
 
-        if (this.uploader.options.removeAfterUpload) {
+        if (this.uploader.options.removeAfterUpload && status < 400) {
             this.remove();
+        } else if(status >= 400 && response) {
+            if(typeof response === 'string') {
+                response = JSON.parse(response);
+            }
+            this.errorMessage = response.message || response.data.message;
         }
     }
 

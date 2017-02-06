@@ -19,6 +19,7 @@ export interface FileUploaderOptions {
     filters ? : Array < any > ;
     headers ? : Array < Headers > ;
     maxFileSize ? : number;
+    formData ? : Array < string >;
     queueLimit ? : number;
     removeAfterUpload ? : boolean;
     url ? : string;
@@ -32,6 +33,7 @@ export class FileUploader {
     public progress: number = 0;
     public _nextIndex: number = 0;
     public autoUpload: any;
+    public formData : Array < string >;
 
     public options: FileUploaderOptions = {
         autoUpload: false,
@@ -77,7 +79,9 @@ export class FileUploader {
             });
         }
 
-        // this.options.filters.unshift({name: 'folder', fn: this._folderFilter});
+        if(this.options.formData) {
+            this.formData = this.options.formData;
+        }
     }
 
     public addToQueue(files: any[], options ? : any, filters ? : any): void {
@@ -328,18 +332,17 @@ export class FileUploader {
         let xhr = item._xhr = new XMLHttpRequest();
         let form = new FormData();
         this._onBeforeUploadItem(item);
-        // todo
-        /*item.formData.map(obj => {
-         obj.map((value, key) => {
-         form.append(key, value);
-         });
-         });*/
         if (typeof item._file.size !== 'number') {
             throw new TypeError('The file specified is no longer valid');
         }
         this._onBuildItemForm(item, form);
-
         form.append(item.alias, item._file, item.file.name);
+        for (let i = 0; i < this.formData. length; i++) {
+            let key = this.formData[i];
+            if(item.file[key]) {
+                form.append(key, item.file[key]);
+            }
+        }
         xhr.upload.onprogress = (event: any) => {
             let progress = Math.round(event.lengthComputable ? event.loaded * 100 / event.total : 0);
             this._onProgressItem(item, progress);
