@@ -1,5 +1,4 @@
 "use strict";
-Object.defineProperty(exports, "__esModule", { value: true });
 var FileDetails = (function () {
     function FileDetails(file) {
         this.file = file;
