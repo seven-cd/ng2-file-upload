@@ -1,3 +1,9 @@
+## 2.0.5 (2017-20-03)
+
+### Added
+
+- Add method for updating auth token
+
 ## 2.0.4 (2017-20-03)
 
 ### Added
