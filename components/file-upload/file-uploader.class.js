@@ -19,6 +19,17 @@ var FileUploader = (function () {
         };
         this.setOptions(options);
     }
+    FileUploader.prototype.setUploadUrl = function (url) {
+        this.options.url = url;
+        if (this.queue.length) {
+            this.queue.forEach(function (file) {
+                file.url = url;
+            });
+        }
+    };
+    FileUploader.prototype.setAuthToken = function (authToken) {
+        this.authToken = authToken;
+    };
     FileUploader.prototype.setOptions = function (options) {
         this.options = Object.assign(this.options, options);
         this.authToken = options.authToken;
@@ -45,9 +56,6 @@ var FileUploader = (function () {
                 fn: this._mimeTypeFilter
             });
         }
-    };
-    FileUploader.prototype.setUploadUrl = function (url) {
-        this.options.url = url;
     };
     FileUploader.prototype.addToQueue = function (files, options, filters) {
         var _this = this;

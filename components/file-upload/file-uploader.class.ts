@@ -46,6 +46,19 @@ export class FileUploader {
         this.setOptions(options);
     }
 
+    public setUploadUrl(url: string) : void {
+        this.options.url = url;
+        if(this.queue.length) {
+            this.queue.forEach((file) => {
+                file.url = url;
+            })
+        }
+    }
+
+    public setAuthToken(authToken: string) : void {
+        this.authToken = authToken;
+    }
+
     public setOptions(options: any): void {
         this.options = Object.assign(this.options, options);
 
@@ -76,10 +89,6 @@ export class FileUploader {
                 fn: this._mimeTypeFilter
             });
         }
-    }
-
-    public setUploadUrl(url: string) : void {
-        this.options.url = url;
     }
 
     public addToQueue(files: any[], options ? : any, filters ? : any): void {
