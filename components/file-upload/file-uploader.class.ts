@@ -78,6 +78,10 @@ export class FileUploader {
         }
     }
 
+    public setUploadUrl(url: string) : void {
+        this.options.url = url;
+    }
+
     public addToQueue(files: any[], options ? : any, filters ? : any): void {
         let list: any[] = [];
         for (let file of files) {

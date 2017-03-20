@@ -1,7 +1,8 @@
 "use strict";
-var file_like_object_class_1 = require('./file-like-object.class');
-var file_item_class_1 = require('./file-item.class');
-var file_type_class_1 = require('./file-type.class');
+Object.defineProperty(exports, "__esModule", { value: true });
+var file_like_object_class_1 = require("./file-like-object.class");
+var file_item_class_1 = require("./file-item.class");
+var file_type_class_1 = require("./file-type.class");
 function isFile(value) {
     return (File && value instanceof File);
 }
@@ -45,6 +46,9 @@ var FileUploader = (function () {
                 fn: this._mimeTypeFilter
             });
         }
+    };
+    FileUploader.prototype.setUploadUrl = function (url) {
+        this.options.url = url;
     };
     FileUploader.prototype.addToQueue = function (files, options, filters) {
         var _this = this;
@@ -274,7 +278,6 @@ var FileUploader = (function () {
         for (var key in item.file) {
             var prop = item.file[key];
             if (typeof prop !== 'function' && !item._file[key]) {
-                console.log(key);
                 form.append(key, prop);
             }
         }

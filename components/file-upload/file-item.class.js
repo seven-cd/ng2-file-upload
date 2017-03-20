@@ -1,7 +1,8 @@
 "use strict";
-var core_1 = require('@angular/core');
-var file_like_object_class_1 = require('./file-like-object.class');
-var file_details_class_1 = require('./file-details.class');
+Object.defineProperty(exports, "__esModule", { value: true });
+var core_1 = require("@angular/core");
+var file_like_object_class_1 = require("./file-like-object.class");
+var file_details_class_1 = require("./file-details.class");
 var FileItem = (function () {
     function FileItem(uploader, some, options) {
         this.alias = 'file';

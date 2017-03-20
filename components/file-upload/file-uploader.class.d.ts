@@ -26,6 +26,7 @@ export declare class FileUploader {
     private _failFilterIndex;
     constructor(options: any);
     setOptions(options: any): void;
+    setUploadUrl(url: string): void;
     addToQueue(files: any[], options?: any, filters?: any): void;
     removeFromQueue(value: any): void;
     clearQueue(): void;
