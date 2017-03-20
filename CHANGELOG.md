@@ -1,3 +1,9 @@
+## 2.0.4 (2017-20-03)
+
+### Added
+
+- Add method for updating upload endpoint
+
 ## 2.0.3 (2017-06-02)
 
 ### Changed
