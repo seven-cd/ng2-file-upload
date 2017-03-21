@@ -177,6 +177,18 @@ export class FileUploader {
         items.map((item: any) => item.cancel());
     }
 
+    public getFailedUploads() : Array<any> {
+        if(this.queue.length) {
+            let failedUploads = this.queue.map((file) => {
+                return file.isError === true;
+            }) 
+
+            return failedUploads;
+        } else {
+            return [];
+        }
+    }
+
     public isFile(value: any): boolean {
         return isFile(value);
     }

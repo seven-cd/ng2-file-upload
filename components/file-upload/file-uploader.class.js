@@ -138,6 +138,17 @@ var FileUploader = (function () {
         var items = this.getNotUploadedItems();
         items.map(function (item) { return item.cancel(); });
     };
+    FileUploader.prototype.getFailedUploads = function () {
+        if (this.queue.length) {
+            var failedUploads = this.queue.map(function (file) {
+                return file.isError === true;
+            });
+            return failedUploads;
+        }
+        else {
+            return [];
+        }
+    };
     FileUploader.prototype.isFile = function (value) {
         return isFile(value);
     };

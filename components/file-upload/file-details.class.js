@@ -6,13 +6,19 @@ var FileDetails = (function () {
     }
     FileDetails.prototype.getFileDetails = function () {
         var imageType = /image.*/;
-        var imageExist = this.file.type.match(imageType);
-        if (!imageExist) {
-            this.fileType = 'file';
+        var videoType = /video.*/;
+        var isImage = this.file.type.match(imageType);
+        var isVideo = this.file.type.match(videoType);
+        if (isImage) {
+            this.getImageDetails();
+        }
+        else if (isVideo) {
+            this.fileType = 'video';
             this.fileUrl = '';
         }
         else {
-            this.getImageDetails();
+            this.fileType = 'file';
+            this.fileUrl = '';
         }
     };
     FileDetails.prototype.getImageDetails = function () {

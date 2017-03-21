@@ -11,13 +11,18 @@ export class FileDetails {
 
     private getFileDetails():void {
         let imageType = /image.*/;
-        let imageExist = this.file.type.match(imageType);
+        let videoType = /video.*/;
+        let isImage = this.file.type.match(imageType);
+        let isVideo = this.file.type.match(videoType);
 
-        if (!imageExist) {
-            this.fileType = 'file';
+        if(isImage) {
+            this.getImageDetails();
+        } else if (isVideo) {
+            this.fileType = 'video';
             this.fileUrl = '';
         } else {
-            this.getImageDetails();
+            this.fileType = 'file';
+            this.fileUrl = '';
         }
     }
 

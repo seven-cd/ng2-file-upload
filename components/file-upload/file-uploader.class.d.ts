@@ -35,6 +35,7 @@ export declare class FileUploader {
     cancelItem(value: any): void;
     uploadAll(): void;
     cancelAll(): void;
+    getFailedUploads(): Array<any>;
     isFile(value: any): boolean;
     isFileLikeObject(value: any): boolean;
     getIndexOfItem(value: any): number;
