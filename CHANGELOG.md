@@ -1,3 +1,9 @@
+## 2.0.6 (2017-21-03)
+
+### Added
+
+- Add method for fetchin failed uploads
+
 ## 2.0.5 (2017-20-03)
 
 ### Added
