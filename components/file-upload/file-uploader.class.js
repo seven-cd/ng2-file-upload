@@ -140,7 +140,7 @@ var FileUploader = (function () {
     };
     FileUploader.prototype.getFailedUploads = function () {
         if (this.queue.length) {
-            var failedUploads = this.queue.map(function (file) {
+            var failedUploads = this.queue.filter(function (file) {
                 return file.isError === true;
             });
             return failedUploads;

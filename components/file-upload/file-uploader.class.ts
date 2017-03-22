@@ -179,10 +179,9 @@ export class FileUploader {
 
     public getFailedUploads() : Array<any> {
         if(this.queue.length) {
-            let failedUploads = this.queue.map((file) => {
+            let failedUploads = this.queue.filter((file) => {
                 return file.isError === true;
             }) 
-
             return failedUploads;
         } else {
             return [];
