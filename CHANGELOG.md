@@ -1,3 +1,9 @@
+## 2.0.7 (2017-22-03)
+
+### Fixed
+
+- Replace map with filter
+
 ## 2.0.6 (2017-21-03)
 
 ### Added
