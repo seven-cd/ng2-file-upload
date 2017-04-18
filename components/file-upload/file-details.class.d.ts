@@ -4,5 +4,4 @@ export declare class FileDetails {
     private file;
     constructor(file: any);
     private getFileDetails();
-    private getImageDetails();
 }
