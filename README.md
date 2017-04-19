@@ -1,36 +1,49 @@
 # ng2-file-upload
 
-## Quick start
+## Usage
 
-1. A recommended way to install ***ng2-file-upload*** is through npm package manager using the following command:
-
-  `npm i ng2-file-upload --save`
-
-  Alternatively, you can download it in a ZIP file.
-
-2. Currently `ng2-file-upload` contains two directives: `angular-file-select` and `angular-file-drop`. `angular-file-select` is used for 'file-input' field of form and `angular-file-drop` is used for area that will be used for dropping of file or files.
+2. `ng2-file-upload` exports 3 directives: `fileSelect`, `fileDrop` and `imgPreview`.
 
 ## API for `fileSelect`
 
+  ```html
+  <input type="file"
+        fileSelect
+        [uploader]="uploader"
+        multiple>
+  ```
+
 ### Properties
 
-  - `uploader` - (`FileUploader`)
+  - `uploader` - uploader object.
 
 ## API for `fileDrop`
 
+  ```html
+  <div class="drop-zone"
+    fileDrop
+    (fileOver)="fileOver($event)"
+    [uploader]="uploader">
+  </div>
+  ``` 
+
 ### Properties
 
-  - `uploader` - (`FileUploader`) - uploader object.
+  - `uploader` - uploader object.
 
-  Parameters that supported by this object:
+## API for `imgPreview`
 
-  1. `url` - URL of File Uploader's route
-  2. `authToken` - Auth token that will be applied as 'Authorization' header during file send.
-  3. `formData` - Global props which will be passed as part of upload request
+  ```html
+  <div class="img-preview"
+    imgPreview 
+    [image]="item?._file">
+  </div>
+  ```
+`imgPreview` set the background image url on element.
 
-### Events
+### Properties
 
-  - `fileOver` - it fires during 'over' and 'out' events for Drop Area; returns `boolean`: `true` if file is over Drop Area, `false` in case of out.
+  - `image` - File added to uploader's queue
 
 ### SystemJS Configutation
 
