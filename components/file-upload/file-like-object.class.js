@@ -11,7 +11,8 @@ var FileLikeObject = (function () {
         this[method](fakePathOrObject);
     }
     FileLikeObject.stripExtension = function (name) {
-        return name.split('.')[0];
+        var lastIdx = name.lastIndexOf('.');
+        return lastIdx !== -1 ? name.slice(0, lastIdx) : name;
     };
     FileLikeObject.prototype._createFromFakePath = function (path) {
         this.lastModifiedDate = void 0;

@@ -18,7 +18,9 @@ export class FileLikeObject {
     }
 
     static stripExtension(name: string): string {
-        return name.split('.')[0];
+        let lastIdx = name.lastIndexOf('.');
+
+        return lastIdx !== -1 ? name.slice(0, lastIdx) : name;
     }
 
     private _createFromFakePath(path: string): void {
