@@ -1,3 +1,9 @@
+## 2.0.10 (2017-04-06)
+
+### Fixed
+
+- Fix stripping img extension
+
 ## 2.0.7 (2017-22-03)
 
 ### Fixed
