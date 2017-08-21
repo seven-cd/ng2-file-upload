@@ -50,3 +50,4 @@ var FileSelectDirective = (function () {
     return FileSelectDirective;
 }());
 exports.FileSelectDirective = FileSelectDirective;
+;

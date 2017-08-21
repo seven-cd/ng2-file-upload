@@ -40,4 +40,4 @@ export class FileSelectDirective {
              .replaceWith(this.element = this.element.nativeElement.clone(true)); // IE fix*/
         }
     }
-}
+};

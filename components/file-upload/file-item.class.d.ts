@@ -42,5 +42,5 @@ export declare class FileItem {
     _onError(response: any, status: any, headers: any): void;
     _onCancel(response: any, status: any, headers: any): void;
     _onComplete(response: any, status: any, headers: any): void;
-    _prepareToUploading(): void;
+    _prepareToUploading(url?: string): void;
 }

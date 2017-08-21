@@ -150,8 +150,10 @@ var FileItem = (function () {
             this.errorMessage = response.message || response.data.message;
         }
     };
-    FileItem.prototype._prepareToUploading = function () {
+    FileItem.prototype._prepareToUploading = function (url) {
+        if (url === void 0) { url = null; }
         this.index = this.index || ++this.uploader._nextIndex;
+        this.url = url || this.url;
         this.isReady = true;
     };
     return FileItem;

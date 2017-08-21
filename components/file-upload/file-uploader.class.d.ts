@@ -33,7 +33,7 @@ export declare class FileUploader {
     clearQueue(): void;
     uploadItem(value: FileItem): void;
     cancelItem(value: any): void;
-    uploadAll(): void;
+    uploadAll(url?: string): void;
     cancelAll(): void;
     getFailedUploads(): Array<any>;
     isFile(value: any): boolean;

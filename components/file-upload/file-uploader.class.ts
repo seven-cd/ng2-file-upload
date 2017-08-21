@@ -163,12 +163,12 @@ export class FileUploader {
         }
     }
 
-    public uploadAll(): void {
+    public uploadAll(url: string = null): void {
         let items = this.getNotUploadedItems().filter((item: any) => !item.isUploading);
         if (!items.length) {
             return;
         }
-        items.map((item: any) => item._prepareToUploading());
+        items.map((item: any) => item._prepareToUploading(url));
         items[0].upload();
     }
 
@@ -181,7 +181,7 @@ export class FileUploader {
         if(this.queue.length) {
             let failedUploads = this.queue.filter((file) => {
                 return file.isError === true;
-            }) 
+            });
             return failedUploads;
         } else {
             return [];

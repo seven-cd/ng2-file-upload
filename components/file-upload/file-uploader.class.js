@@ -126,12 +126,13 @@ var FileUploader = (function () {
             item[prop].abort();
         }
     };
-    FileUploader.prototype.uploadAll = function () {
+    FileUploader.prototype.uploadAll = function (url) {
+        if (url === void 0) { url = null; }
         var items = this.getNotUploadedItems().filter(function (item) { return !item.isUploading; });
         if (!items.length) {
             return;
         }
-        items.map(function (item) { return item._prepareToUploading(); });
+        items.map(function (item) { return item._prepareToUploading(url); });
         items[0].upload();
     };
     FileUploader.prototype.cancelAll = function () {

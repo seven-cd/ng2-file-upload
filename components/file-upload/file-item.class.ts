@@ -178,8 +178,9 @@ export class FileItem {
         }
     }
 
-    public _prepareToUploading(): void {
+    public _prepareToUploading(url: string = null): void {
         this.index = this.index || ++this.uploader._nextIndex;
+        this.url = url || this.url;
         this.isReady = true;
     }
 }
