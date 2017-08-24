@@ -1,3 +1,5 @@
+import { Inject, Injectable } from "@angular/core";
+
 import {FileLikeObject} from './file-like-object.class';
 import {FileItem} from './file-item.class';
 import {FileType} from './file-type.class';
@@ -24,6 +26,7 @@ export interface FileUploaderOptions {
     url ? : string;
 }
 
+@Injectable()
 export class FileUploader {
 
     public authToken: string;

@@ -27,28 +27,12 @@
     "registry": "https://npm.nsoft.ba"
   },
   "devDependencies": {
-    "@angular/common": "~2.4.5",
-    "@angular/compiler": "~2.4.5",
-    "@angular/core": "~2.4.5",
-    "@angular/platform-browser": "~2.4.5",
-    "@angular/platform-browser-dynamic": "~2.4.5",
-    "async": "1.5.2",
-    "es6-promise": "3.1.2",
-    "es6-shim": "0.35.0",
-    "es7-reflect-metadata": "1.6.0",
-    "exports-loader": "0.6.3",
-    "file-loader": "0.8.5",
+    "@angular/common": "~4.0.0",
+    "@angular/compiler": "~4.0.0",
+    "@angular/core": "~4.0.0",
     "gh-pages": "0.11.0",
-    "lite-server": "2.2.0",
-    "prismjs": "1.4.1",
-    "prismjs-loader": "0.0.3",
-    "rxjs": "5.0.0-beta.6",
-    "source-map-loader": "0.1.5",
-    "systemjs-builder": "0.15.16",
-    "ts-loader": "0.8.2",
-    "tslint-config-valorsoft": "1.0.3",
-    "typescript": "1.8.10",
-    "typings": "0.8.1",
-    "zone.js": "0.6.12"
+    "rxjs": "~5.1.0",
+    "typescript": "~2.2.1",
+    "zone.js": "~0.8.4"
   }
 }
