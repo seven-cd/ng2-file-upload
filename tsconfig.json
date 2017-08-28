@@ -22,7 +22,7 @@
     "node_modules"
   ],
   "files": [
-    "./file-upload.ts",
+    "./file-upload.module.ts",
     "./index.ts"
   ]
 }

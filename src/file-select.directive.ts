@@ -1,10 +1,10 @@
 import { Directive, ElementRef, Input, HostListener } from '@angular/core';
 
-import { FileUploaderService } from './file-uploader.service';
+import { FileUploader } from './file-uploader.class';
 
 @Directive({selector: '[fileSelect]'})
 export class FileSelectDirective {
-    @Input() public uploader: FileUploaderService;
+    @Input() public uploader: FileUploader;
 
     private element: ElementRef;
     public constructor(element: ElementRef) {

@@ -1,22 +1,12 @@
 "use strict";
-var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
-    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
-    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
-    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
-    return c > 3 && r && Object.defineProperty(target, key, r), r;
-};
-var __metadata = (this && this.__metadata) || function (k, v) {
-    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
-};
-var core_1 = require("@angular/core");
 var file_like_object_class_1 = require('./file-like-object.class');
 var file_item_class_1 = require('./file-item.class');
 var file_type_class_1 = require('./file-type.class');
 function isFile(value) {
     return (File && value instanceof File);
 }
-var FileUploaderService = (function () {
-    function FileUploaderService(options) {
+var FileUploader = (function () {
+    function FileUploader(options) {
         this.isUploading = false;
         this.queue = [];
         this.progress = 0;
@@ -29,7 +19,7 @@ var FileUploaderService = (function () {
         };
         this.setOptions(options);
     }
-    FileUploaderService.prototype.setUploadUrl = function (url) {
+    FileUploader.prototype.setUploadUrl = function (url) {
         this.options.url = url;
         if (this.queue.length) {
             this.queue.forEach(function (file) {
@@ -37,10 +27,10 @@ var FileUploaderService = (function () {
             });
         }
     };
-    FileUploaderService.prototype.setAuthToken = function (authToken) {
+    FileUploader.prototype.setAuthToken = function (authToken) {
         this.authToken = authToken;
     };
-    FileUploaderService.prototype.setOptions = function (options) {
+    FileUploader.prototype.setOptions = function (options) {
         this.options = Object.assign(this.options, options);
         this.authToken = options.authToken;
         this.autoUpload = options.autoUpload;
@@ -67,7 +57,7 @@ var FileUploaderService = (function () {
             });
         }
     };
-    FileUploaderService.prototype.addToQueue = function (files, options, filters) {
+    FileUploader.prototype.addToQueue = function (files, options, filters) {
         var _this = this;
         var list = [];
         for (var _i = 0, files_1 = files; _i < files_1.length; _i++) {
@@ -102,7 +92,7 @@ var FileUploaderService = (function () {
             this.uploadAll();
         }
     };
-    FileUploaderService.prototype.removeFromQueue = function (value) {
+    FileUploader.prototype.removeFromQueue = function (value) {
         var index = this.getIndexOfItem(value);
         var item = this.queue[index];
         if (item.isUploading) {
@@ -111,13 +101,13 @@ var FileUploaderService = (function () {
         this.queue.splice(index, 1);
         this.progress = this._getTotalProgress();
     };
-    FileUploaderService.prototype.clearQueue = function () {
+    FileUploader.prototype.clearQueue = function () {
         while (this.queue.length) {
             this.queue[0].remove();
         }
         this.progress = 0;
     };
-    FileUploaderService.prototype.uploadItem = function (value) {
+    FileUploader.prototype.uploadItem = function (value) {
         var index = this.getIndexOfItem(value);
         var item = this.queue[index];
         var transport = this.options.isHTML5 ? '_xhrTransport' : '_iframeTransport';
@@ -128,7 +118,7 @@ var FileUploaderService = (function () {
         this.isUploading = true;
         this[transport](item);
     };
-    FileUploaderService.prototype.cancelItem = function (value) {
+    FileUploader.prototype.cancelItem = function (value) {
         var index = this.getIndexOfItem(value);
         var item = this.queue[index];
         var prop = this.options.isHTML5 ? '_xhr' : '_form';
@@ -136,7 +126,7 @@ var FileUploaderService = (function () {
             item[prop].abort();
         }
     };
-    FileUploaderService.prototype.uploadAll = function (url) {
+    FileUploader.prototype.uploadAll = function (url) {
         if (url === void 0) { url = null; }
         var items = this.getNotUploadedItems().filter(function (item) { return !item.isUploading; });
         if (!items.length) {
@@ -145,11 +135,11 @@ var FileUploaderService = (function () {
         items.map(function (item) { return item._prepareToUploading(url); });
         items[0].upload();
     };
-    FileUploaderService.prototype.cancelAll = function () {
+    FileUploader.prototype.cancelAll = function () {
         var items = this.getNotUploadedItems();
         items.map(function (item) { return item.cancel(); });
     };
-    FileUploaderService.prototype.getFailedUploads = function () {
+    FileUploader.prototype.getFailedUploads = function () {
         if (this.queue.length) {
             var failedUploads = this.queue.filter(function (file) {
                 return file.isError === true;
@@ -160,24 +150,24 @@ var FileUploaderService = (function () {
             return [];
         }
     };
-    FileUploaderService.prototype.isFile = function (value) {
+    FileUploader.prototype.isFile = function (value) {
         return isFile(value);
     };
-    FileUploaderService.prototype.isFileLikeObject = function (value) {
+    FileUploader.prototype.isFileLikeObject = function (value) {
         return value instanceof file_like_object_class_1.FileLikeObject;
     };
-    FileUploaderService.prototype.getIndexOfItem = function (value) {
+    FileUploader.prototype.getIndexOfItem = function (value) {
         return typeof value === 'number' ? value : this.queue.indexOf(value);
     };
-    FileUploaderService.prototype.getNotUploadedItems = function () {
+    FileUploader.prototype.getNotUploadedItems = function () {
         return this.queue.filter(function (item) { return !item.isUploaded; });
     };
-    FileUploaderService.prototype.getReadyItems = function () {
+    FileUploader.prototype.getReadyItems = function () {
         return this.queue
             .filter(function (item) { return (item.isReady && !item.isUploading); })
             .sort(function (item1, item2) { return item1.index - item2.index; });
     };
-    FileUploaderService.prototype.destroy = function () {
+    FileUploader.prototype.destroy = function () {
         return void 0;
         /*forEach(this._directives, (key) => {
          forEach(this._directives[key], (object) => {
@@ -185,46 +175,46 @@ var FileUploaderService = (function () {
          });
          });*/
     };
-    FileUploaderService.prototype.onAfterAddingAll = function (fileItems) {
+    FileUploader.prototype.onAfterAddingAll = function (fileItems) {
         return {
             fileItems: fileItems
         };
     };
-    FileUploaderService.prototype.onBuildItemForm = function (fileItem, form) {
+    FileUploader.prototype.onBuildItemForm = function (fileItem, form) {
         return {
             fileItem: fileItem,
             form: form
         };
     };
-    FileUploaderService.prototype.onAfterAddingFile = function (fileItem) {
+    FileUploader.prototype.onAfterAddingFile = function (fileItem) {
         return {
             fileItem: fileItem
         };
     };
-    FileUploaderService.prototype.onWhenAddingFileFailed = function (item, filter, options) {
+    FileUploader.prototype.onWhenAddingFileFailed = function (item, filter, options) {
         return {
             item: item,
             filter: filter,
             options: options
         };
     };
-    FileUploaderService.prototype.onBeforeUploadItem = function (fileItem) {
+    FileUploader.prototype.onBeforeUploadItem = function (fileItem) {
         return {
             fileItem: fileItem
         };
     };
-    FileUploaderService.prototype.onProgressItem = function (fileItem, progress) {
+    FileUploader.prototype.onProgressItem = function (fileItem, progress) {
         return {
             fileItem: fileItem,
             progress: progress
         };
     };
-    FileUploaderService.prototype.onProgressAll = function (progress) {
+    FileUploader.prototype.onProgressAll = function (progress) {
         return {
             progress: progress
         };
     };
-    FileUploaderService.prototype.onSuccessItem = function (item, response, status, headers) {
+    FileUploader.prototype.onSuccessItem = function (item, response, status, headers) {
         return {
             item: item,
             response: response,
@@ -232,7 +222,7 @@ var FileUploaderService = (function () {
             headers: headers
         };
     };
-    FileUploaderService.prototype.onErrorItem = function (item, response, status, headers) {
+    FileUploader.prototype.onErrorItem = function (item, response, status, headers) {
         return {
             item: item,
             response: response,
@@ -240,7 +230,7 @@ var FileUploaderService = (function () {
             headers: headers
         };
     };
-    FileUploaderService.prototype.onCancelItem = function (item, response, status, headers) {
+    FileUploader.prototype.onCancelItem = function (item, response, status, headers) {
         return {
             item: item,
             response: response,
@@ -248,7 +238,7 @@ var FileUploaderService = (function () {
             headers: headers
         };
     };
-    FileUploaderService.prototype.onCompleteItem = function (item, response, status, headers) {
+    FileUploader.prototype.onCompleteItem = function (item, response, status, headers) {
         return {
             item: item,
             response: response,
@@ -256,24 +246,24 @@ var FileUploaderService = (function () {
             headers: headers
         };
     };
-    FileUploaderService.prototype.onCompleteAll = function () {
+    FileUploader.prototype.onCompleteAll = function () {
         return void 0;
     };
-    FileUploaderService.prototype._mimeTypeFilter = function (item) {
+    FileUploader.prototype._mimeTypeFilter = function (item) {
         return !(this.options.allowedMimeType && this.options.allowedMimeType.indexOf(item.type) === -1);
     };
-    FileUploaderService.prototype._fileSizeFilter = function (item) {
+    FileUploader.prototype._fileSizeFilter = function (item) {
         return !(this.options.maxFileSize && item.size > this.options.maxFileSize);
     };
-    FileUploaderService.prototype._fileTypeFilter = function (item) {
+    FileUploader.prototype._fileTypeFilter = function (item) {
         return !(this.options.allowedFileType &&
             this.options.allowedFileType.indexOf(file_type_class_1.FileType.getMimeClass(item)) === -1);
     };
-    FileUploaderService.prototype._onErrorItem = function (item, response, status, headers) {
+    FileUploader.prototype._onErrorItem = function (item, response, status, headers) {
         item._onError(response, status, headers);
         this.onErrorItem(item, response, status, headers);
     };
-    FileUploaderService.prototype._onCompleteItem = function (item, response, status, headers) {
+    FileUploader.prototype._onCompleteItem = function (item, response, status, headers) {
         item._onComplete(response, status, headers);
         this.onCompleteItem(item, response, status, headers);
         var nextItem = this.getReadyItems()[0];
@@ -286,7 +276,7 @@ var FileUploaderService = (function () {
         this.progress = this._getTotalProgress();
         this._render();
     };
-    FileUploaderService.prototype._headersGetter = function (parsedHeaders) {
+    FileUploader.prototype._headersGetter = function (parsedHeaders) {
         return function (name) {
             if (name) {
                 return parsedHeaders[name.toLowerCase()] || void 0;
@@ -294,7 +284,7 @@ var FileUploaderService = (function () {
             return parsedHeaders;
         };
     };
-    FileUploaderService.prototype._xhrTransport = function (item) {
+    FileUploader.prototype._xhrTransport = function (item) {
         var _this = this;
         var xhr = item._xhr = new XMLHttpRequest();
         var form = new FormData();
@@ -352,7 +342,7 @@ var FileUploaderService = (function () {
         xhr.send(form);
         this._render();
     };
-    FileUploaderService.prototype._getTotalProgress = function (value) {
+    FileUploader.prototype._getTotalProgress = function (value) {
         if (value === void 0) { value = 0; }
         if (this.options.removeAfterUpload) {
             return value;
@@ -363,7 +353,7 @@ var FileUploaderService = (function () {
         var current = value * ratio / 100;
         return Math.round(uploaded * ratio + current);
     };
-    FileUploaderService.prototype._getFilters = function (filters) {
+    FileUploader.prototype._getFilters = function (filters) {
         if (!filters) {
             return this.options.filters;
         }
@@ -377,17 +367,17 @@ var FileUploaderService = (function () {
         }
         return this.options.filters;
     };
-    FileUploaderService.prototype._render = function () {
+    FileUploader.prototype._render = function () {
         return void 0;
         // todo: ?
     };
     // private _folderFilter(item:any):boolean {
     //   return !!(item.size || item.type);
     // }
-    FileUploaderService.prototype._queueLimitFilter = function () {
+    FileUploader.prototype._queueLimitFilter = function () {
         return this.options.queueLimit === undefined || this.queue.length < this.options.queueLimit;
     };
-    FileUploaderService.prototype._isValidFile = function (file, filters, options) {
+    FileUploader.prototype._isValidFile = function (file, filters, options) {
         var _this = this;
         this._failFilterIndex = -1;
         return !filters.length ? true : filters.every(function (filter) {
@@ -395,11 +385,11 @@ var FileUploaderService = (function () {
             return filter.fn.call(_this, file, options);
         });
     };
-    FileUploaderService.prototype._isSuccessCode = function (status) {
+    FileUploader.prototype._isSuccessCode = function (status) {
         return (status >= 200 && status < 300) || status === 304;
     };
     /* tslint:disable */
-    FileUploaderService.prototype._transformResponse = function (response, headers) {
+    FileUploader.prototype._transformResponse = function (response, headers) {
         // todo: ?
         /*var headersGetter = this._headersGetter(headers);
          forEach($http.defaults.transformResponse, (transformFn) => {
@@ -408,7 +398,7 @@ var FileUploaderService = (function () {
         return response;
     };
     /* tslint:enable */
-    FileUploaderService.prototype._parseHeaders = function (headers) {
+    FileUploader.prototype._parseHeaders = function (headers) {
         var parsed = {};
         var key;
         var val;
@@ -429,24 +419,24 @@ var FileUploaderService = (function () {
     /*private _iframeTransport(item:any) {
      // todo: implement it later
      }*/
-    FileUploaderService.prototype._onWhenAddingFileFailed = function (item, filter, options) {
+    FileUploader.prototype._onWhenAddingFileFailed = function (item, filter, options) {
         this.onWhenAddingFileFailed(item, filter, options);
     };
-    FileUploaderService.prototype._onAfterAddingFile = function (item) {
+    FileUploader.prototype._onAfterAddingFile = function (item) {
         this.onAfterAddingFile(item);
     };
-    FileUploaderService.prototype._onAfterAddingAll = function (items) {
+    FileUploader.prototype._onAfterAddingAll = function (items) {
         this.onAfterAddingAll(items);
     };
-    FileUploaderService.prototype._onBeforeUploadItem = function (item) {
+    FileUploader.prototype._onBeforeUploadItem = function (item) {
         item._onBeforeUpload();
         this.onBeforeUploadItem(item);
     };
-    FileUploaderService.prototype._onBuildItemForm = function (item, form) {
+    FileUploader.prototype._onBuildItemForm = function (item, form) {
         item._onBuildForm(form);
         this.onBuildItemForm(item, form);
     };
-    FileUploaderService.prototype._onProgressItem = function (item, progress) {
+    FileUploader.prototype._onProgressItem = function (item, progress) {
         var total = this._getTotalProgress(progress);
         this.progress = total;
         item._onProgress(progress);
@@ -455,19 +445,15 @@ var FileUploaderService = (function () {
         this._render();
     };
     /* tslint:disable */
-    FileUploaderService.prototype._onSuccessItem = function (item, response, status, headers) {
+    FileUploader.prototype._onSuccessItem = function (item, response, status, headers) {
         item._onSuccess(response, status, headers);
         this.onSuccessItem(item, response, status, headers);
     };
     /* tslint:enable */
-    FileUploaderService.prototype._onCancelItem = function (item, response, status, headers) {
+    FileUploader.prototype._onCancelItem = function (item, response, status, headers) {
         item._onCancel(response, status, headers);
         this.onCancelItem(item, response, status, headers);
     };
-    FileUploaderService = __decorate([
-        core_1.Injectable(), 
-        __metadata('design:paramtypes', [Object])
-    ], FileUploaderService);
-    return FileUploaderService;
+    return FileUploader;
 }());
-exports.FileUploaderService = FileUploaderService;
+exports.FileUploader = FileUploader;

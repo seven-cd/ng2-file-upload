@@ -9,7 +9,7 @@ var __metadata = (this && this.__metadata) || function (k, v) {
     if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
 };
 var core_1 = require('@angular/core');
-var file_uploader_service_1 = require('./file-uploader.service');
+var file_uploader_class_1 = require('./file-uploader.class');
 var FileSelectDirective = (function () {
     function FileSelectDirective(element) {
         this.element = element;
@@ -35,7 +35,7 @@ var FileSelectDirective = (function () {
     };
     __decorate([
         core_1.Input(), 
-        __metadata('design:type', file_uploader_service_1.FileUploaderService)
+        __metadata('design:type', file_uploader_class_1.FileUploader)
     ], FileSelectDirective.prototype, "uploader", void 0);
     __decorate([
         core_1.HostListener('change'), 

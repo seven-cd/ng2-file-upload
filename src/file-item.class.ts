@@ -1,7 +1,7 @@
 import {NgZone} from '@angular/core';
 
 import {FileLikeObject} from './file-like-object.class';
-import {FileUploaderService} from './file-uploader.service';
+import {FileUploader} from './file-uploader.class';
 import {FileDetails} from './file-details.class';
 
 export class FileItem {
@@ -25,11 +25,11 @@ export class FileItem {
     public index: number = void 0;
     private _zone: NgZone;
 
-    private uploader: FileUploaderService;
+    private uploader: FileUploader;
     private some: any;
     private options: any;
 
-    public constructor(uploader: FileUploaderService, some: any, options: any) {
+    public constructor(uploader: FileUploader, some: any, options: any) {
         this.uploader = uploader;
         this.some = some;
         this.options = options;

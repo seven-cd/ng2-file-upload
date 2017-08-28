@@ -1,7 +1,7 @@
 import { EventEmitter, ElementRef } from '@angular/core';
-import { FileUploaderService } from './file-uploader.service';
+import { FileUploader } from './file-uploader.class';
 export declare class FileDropDirective {
-    uploader: FileUploaderService;
+    uploader: FileUploader;
     fileOver: EventEmitter<any>;
     onFileDrop: EventEmitter<File[]>;
     private element;

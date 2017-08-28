@@ -9,15 +9,16 @@ var __metadata = (this && this.__metadata) || function (k, v) {
     if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
 };
 var core_1 = require('@angular/core');
+var common_1 = require('@angular/common');
 var file_select_directive_1 = require('./src/file-select.directive');
 var file_drop_directive_1 = require('./src/file-drop.directive');
 var image_preview_directive_1 = require('./src/image-preview.directive');
-var file_uploader_service_1 = require('./src/file-uploader.service');
 var FileUploadModule = (function () {
     function FileUploadModule() {
     }
     FileUploadModule = __decorate([
         core_1.NgModule({
+            imports: [common_1.CommonModule],
             declarations: [
                 file_select_directive_1.FileSelectDirective,
                 file_drop_directive_1.FileDropDirective,
@@ -27,9 +28,6 @@ var FileUploadModule = (function () {
                 file_select_directive_1.FileSelectDirective,
                 file_drop_directive_1.FileDropDirective,
                 image_preview_directive_1.ImagePreviewDirective
-            ],
-            providers: [
-                file_uploader_service_1.FileUploaderService
             ]
         }), 
         __metadata('design:paramtypes', [])

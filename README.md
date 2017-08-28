@@ -51,7 +51,7 @@
 
 ```
   ng2-file-upload: {
-      main: 'file-upload.js',
+      main: 'file-upload.module.js',
       defaultExtension: 'js'
   }
 ```

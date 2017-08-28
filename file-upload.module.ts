@@ -1,11 +1,12 @@
 import {NgModule} from '@angular/core';
+import { CommonModule } from '@angular/common';
 
 import {FileSelectDirective} from './src/file-select.directive';
 import {FileDropDirective} from './src/file-drop.directive';
 import {ImagePreviewDirective} from './src/image-preview.directive';
-import {FileUploaderService} from './src/file-uploader.service';
 
 @NgModule({
+    imports: [CommonModule],
     declarations : [
         FileSelectDirective,
         FileDropDirective,
@@ -15,9 +16,6 @@ import {FileUploaderService} from './src/file-uploader.service';
         FileSelectDirective,
         FileDropDirective,
         ImagePreviewDirective
-    ],
-    providers : [
-        FileUploaderService
     ]
 })
 export class FileUploadModule { }
