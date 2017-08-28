@@ -1,7 +1,7 @@
 import {NgZone} from '@angular/core';
 
 import {FileLikeObject} from './file-like-object.class';
-import {FileUploader} from './file-uploader.class';
+import {FileUploader} from './file-uploader.service';
 import {FileDetails} from './file-details.class';
 
 export class FileItem {

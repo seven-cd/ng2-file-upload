@@ -4,7 +4,6 @@
   "version": "2.0.10",
   "description": "Angular file upload directives",
   "scripts": {
-    "compile": "concurrently \"typings install --save\" \"tsc\"",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "main": "file-upload.js",

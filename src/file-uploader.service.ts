@@ -27,7 +27,7 @@ export interface FileUploaderOptions {
 }
 
 @Injectable()
-export class FileUploader {
+export class FileUploaderService {
 
     public authToken: string;
     public isUploading: boolean = false;

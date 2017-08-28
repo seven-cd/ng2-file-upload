@@ -1,6 +1,6 @@
 import { Directive, EventEmitter, ElementRef, HostListener, Input, Output } from '@angular/core';
 
-import { FileUploader } from './file-uploader.class';
+import { FileUploader } from './file-uploader.service';
 
 @Directive({selector: '[fileDrop]'})
 export class FileDropDirective {
