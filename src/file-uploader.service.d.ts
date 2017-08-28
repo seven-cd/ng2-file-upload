@@ -15,7 +15,7 @@ export interface FileUploaderOptions {
     removeAfterUpload?: boolean;
     url?: string;
 }
-export declare class FileUploader {
+export declare class FileUploaderService {
     authToken: string;
     isUploading: boolean;
     queue: Array<any>;

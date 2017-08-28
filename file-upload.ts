@@ -3,7 +3,7 @@ import {NgModule} from '@angular/core';
 import {FileSelectDirective} from './src/file-select.directive';
 import {FileDropDirective} from './src/file-drop.directive';
 import {ImagePreviewDirective} from './src/image-preview.directive';
-import {FileUploader} from './src/file-uploader.service';
+import {FileUploaderService} from './src/file-uploader.service';
 
 @NgModule({
     declarations : [
@@ -17,7 +17,7 @@ import {FileUploader} from './src/file-uploader.service';
         ImagePreviewDirective
     ],
     providers : [
-        FileUploader
+        FileUploaderService
     ]
 })
 export class FileUploadModule { }

@@ -4,6 +4,7 @@
   "version": "2.0.10",
   "description": "Angular file upload directives",
   "scripts": {
+    "compile": "tsc",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "main": "file-upload.js",
@@ -31,7 +32,7 @@
     "@angular/core": "~4.0.0",
     "gh-pages": "0.11.0",
     "rxjs": "~5.1.0",
-    "typescript": "~2.2.1",
+    "typescript": "~2.4.0",
     "zone.js": "~0.8.4"
   }
 }

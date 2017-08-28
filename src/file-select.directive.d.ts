@@ -1,7 +1,7 @@
 import { ElementRef } from '@angular/core';
-import { FileUploader } from './file-uploader.class';
+import { FileUploaderService } from './file-uploader.service';
 export declare class FileSelectDirective {
-    uploader: FileUploader;
+    uploader: FileUploaderService;
     private element;
     constructor(element: ElementRef);
     getOptions(): any;

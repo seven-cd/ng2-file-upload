@@ -1,5 +1,5 @@
 import { FileLikeObject } from './file-like-object.class';
-import { FileUploader } from './file-uploader.class';
+import { FileUploaderService } from './file-uploader.service';
 import { FileDetails } from './file-details.class';
 export declare class FileItem {
     file: FileLikeObject;
@@ -24,7 +24,7 @@ export declare class FileItem {
     private uploader;
     private some;
     private options;
-    constructor(uploader: FileUploader, some: any, options: any);
+    constructor(uploader: FileUploaderService, some: any, options: any);
     upload(): void;
     cancel(): void;
     remove(): void;
