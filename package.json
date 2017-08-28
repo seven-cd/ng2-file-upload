@@ -4,7 +4,7 @@
   "version": "2.0.10",
   "description": "Angular file upload directives",
   "scripts": {
-    "compile": "tsc",
+    "build": "tsc",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "main": "index.js",
