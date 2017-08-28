@@ -1,11 +1,11 @@
 "use strict";
-var file_select_directive_1 = require('./src/file-select.directive');
-exports.FileSelectDirective = file_select_directive_1.FileSelectDirective;
-var file_drop_directive_1 = require('./src/file-drop.directive');
-exports.FileDropDirective = file_drop_directive_1.FileDropDirective;
-var image_preview_directive_1 = require('./src/image-preview.directive');
-exports.ImagePreviewDirective = image_preview_directive_1.ImagePreviewDirective;
-var file_uploader_class_1 = require('./src/file-uploader.class');
-exports.FileUploader = file_uploader_class_1.FileUploader;
+function __export(m) {
+    for (var p in m) if (!exports.hasOwnProperty(p)) exports[p] = m[p];
+}
+__export(require('./src/file-select.directive'));
+__export(require('./src/file-drop.directive'));
+__export(require('./src/image-preview.directive'));
+__export(require('./src/file-uploader.class'));
+__export(require('./src/file-like-object.class'));
 var file_upload_module_1 = require('./file-upload.module');
 exports.FileUploadModule = file_upload_module_1.FileUploadModule;

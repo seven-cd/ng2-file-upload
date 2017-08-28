@@ -1,7 +1,7 @@
 {
   "name": "ng2-file-upload",
   "private": false, 
-  "version": "2.0.11",
+  "version": "2.0.12",
   "description": "Angular file upload directives",
   "scripts": {
     "build": "tsc",
@@ -20,8 +20,8 @@
     "url": "https://github.com/seven-cd/ng2-file-upload.git"
   },
   "peerDependencies": {
-    "@angular/common": "^2.0.0-rc.1",
-    "@angular/core": "^2.0.0-rc.1"
+    "@angular/common": "*",
+    "@angular/core": "*"
   },
   "publishConfig": {
     "registry": "https://npm.nsoft.ba"
