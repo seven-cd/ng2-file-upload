@@ -28,6 +28,9 @@ export interface FileUploaderOptions {
 
 @Injectable()
 export class FileUploaderService {
+    constructor(options: any) {
+        this.setOptions(options);
+    }
 
     public authToken: string;
     public isUploading: boolean = false;
@@ -35,19 +38,13 @@ export class FileUploaderService {
     public progress: number = 0;
     public _nextIndex: number = 0;
     public autoUpload: any;
-
     public options: FileUploaderOptions = {
         autoUpload: false,
         isHTML5: true,
         filters: [],
         removeAfterUpload: false
     };
-
     private _failFilterIndex: number;
-
-    public constructor(options: any) {
-        this.setOptions(options);
-    }
 
     public setUploadUrl(url: string) : void {
         this.options.url = url;

@@ -16,6 +16,7 @@ export interface FileUploaderOptions {
     url?: string;
 }
 export declare class FileUploaderService {
+    constructor(options: any);
     authToken: string;
     isUploading: boolean;
     queue: Array<any>;
@@ -24,7 +25,6 @@ export declare class FileUploaderService {
     autoUpload: any;
     options: FileUploaderOptions;
     private _failFilterIndex;
-    constructor(options: any);
     setUploadUrl(url: string): void;
     setAuthToken(authToken: string): void;
     setOptions(options: any): void;

@@ -8,9 +8,8 @@ var __decorate = (this && this.__decorate) || function (decorators, target, key,
 var __metadata = (this && this.__metadata) || function (k, v) {
     if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
 };
-Object.defineProperty(exports, "__esModule", { value: true });
-var core_1 = require("@angular/core");
-var file_uploader_service_1 = require("./file-uploader.service");
+var core_1 = require('@angular/core');
+var file_uploader_service_1 = require('./file-uploader.service');
 var FileSelectDirective = (function () {
     function FileSelectDirective(element) {
         this.element = element;
@@ -32,25 +31,21 @@ var FileSelectDirective = (function () {
         // if(!this.uploader.isHTML5) this.destroy();
         this.uploader.addToQueue(files, options, filters);
         if (this.isEmptyAfterSelection()) {
-            // todo
-            // this.element.nativeElement.properties.value = '';
-            /*this.element.nativeElement
-             .replaceWith(this.element = this.element.nativeElement.clone(true)); // IE fix*/
         }
     };
     __decorate([
-        core_1.Input(),
-        __metadata("design:type", file_uploader_service_1.FileUploaderService)
+        core_1.Input(), 
+        __metadata('design:type', file_uploader_service_1.FileUploaderService)
     ], FileSelectDirective.prototype, "uploader", void 0);
     __decorate([
-        core_1.HostListener('change'),
-        __metadata("design:type", Function),
-        __metadata("design:paramtypes", []),
-        __metadata("design:returntype", Object)
+        core_1.HostListener('change'), 
+        __metadata('design:type', Function), 
+        __metadata('design:paramtypes', []), 
+        __metadata('design:returntype', Object)
     ], FileSelectDirective.prototype, "onChange", null);
     FileSelectDirective = __decorate([
-        core_1.Directive({ selector: '[fileSelect]' }),
-        __metadata("design:paramtypes", [core_1.ElementRef])
+        core_1.Directive({ selector: '[fileSelect]' }), 
+        __metadata('design:paramtypes', [core_1.ElementRef])
     ], FileSelectDirective);
     return FileSelectDirective;
 }());

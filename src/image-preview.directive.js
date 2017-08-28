@@ -8,8 +8,7 @@ var __decorate = (this && this.__decorate) || function (decorators, target, key,
 var __metadata = (this && this.__metadata) || function (k, v) {
     if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
 };
-Object.defineProperty(exports, "__esModule", { value: true });
-var core_1 = require("@angular/core");
+var core_1 = require('@angular/core');
 var ImagePreviewDirective = (function () {
     function ImagePreviewDirective(el, renderer) {
         this.el = el;
@@ -26,12 +25,12 @@ var ImagePreviewDirective = (function () {
         }
     };
     __decorate([
-        core_1.Input(),
-        __metadata("design:type", Object)
+        core_1.Input(), 
+        __metadata('design:type', Object)
     ], ImagePreviewDirective.prototype, "image", void 0);
     ImagePreviewDirective = __decorate([
-        core_1.Directive({ selector: 'div[imgPreview]' }),
-        __metadata("design:paramtypes", [core_1.ElementRef, core_1.Renderer])
+        core_1.Directive({ selector: 'div[imgPreview]' }), 
+        __metadata('design:paramtypes', [core_1.ElementRef, core_1.Renderer])
     ], ImagePreviewDirective);
     return ImagePreviewDirective;
 }());

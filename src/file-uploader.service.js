@@ -8,11 +8,10 @@ var __decorate = (this && this.__decorate) || function (decorators, target, key,
 var __metadata = (this && this.__metadata) || function (k, v) {
     if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
 };
-Object.defineProperty(exports, "__esModule", { value: true });
 var core_1 = require("@angular/core");
-var file_like_object_class_1 = require("./file-like-object.class");
-var file_item_class_1 = require("./file-item.class");
-var file_type_class_1 = require("./file-type.class");
+var file_like_object_class_1 = require('./file-like-object.class');
+var file_item_class_1 = require('./file-item.class');
+var file_type_class_1 = require('./file-type.class');
 function isFile(value) {
     return (File && value instanceof File);
 }
@@ -466,8 +465,8 @@ var FileUploaderService = (function () {
         this.onCancelItem(item, response, status, headers);
     };
     FileUploaderService = __decorate([
-        core_1.Injectable(),
-        __metadata("design:paramtypes", [Object])
+        core_1.Injectable(), 
+        __metadata('design:paramtypes', [Object])
     ], FileUploaderService);
     return FileUploaderService;
 }());
