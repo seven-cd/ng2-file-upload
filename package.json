@@ -7,7 +7,7 @@
     "compile": "tsc",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
-  "main": "file-upload.js",
+  "main": "index.js",
   "typings": "file-upload.d.ts",
   "keywords": [
     "angular2",
