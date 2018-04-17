@@ -1,38 +1,24 @@
 {
   "name": "ng2-file-upload",
-  "private": false, 
-  "version": "2.0.15",
   "description": "Angular file upload directives",
   "scripts": {
-    "build": "tsc",
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "transpile": "node_modules/.bin/ngc src/tsconfig-build.json"
   },
-  "main": "index.js",
-  "typings": "file-upload.d.ts",
+  "author": "Ivan Pandzic",
   "keywords": [
     "angular2",
     "file",
     "upload"
   ],
   "license": "MIT",
-  "repository": {
-    "type": "git",
-    "url": "https://github.com/seven-cd/ng2-file-upload.git"
-  },
-  "peerDependencies": {
-    "@angular/common": "*",
-    "@angular/core": "*"
-  },
-  "publishConfig": {
-    "registry": "https://npm.nsoft.ba"
-  },
   "devDependencies": {
     "@angular/common": "~4.0.0",
     "@angular/compiler": "~4.0.0",
+    "@angular/compiler-cli": "~4.0.0",
     "@angular/core": "~4.0.0",
-    "gh-pages": "0.11.0",
-    "rxjs": "~5.1.0",
-    "typescript": "~2.4.0",
+    "rxjs": "~5.0.0",
+    "rollup": "^0.58.0",
+    "typescript": "~2.3.*",
     "zone.js": "~0.8.4"
   }
 }

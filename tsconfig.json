@@ -1,28 +1,11 @@
 {
   "compilerOptions": {
-    "target": "es5",
-    "module": "commonjs",
-    "moduleResolution": "node",
-    "emitDecoratorMetadata": true,
+    "baseUrl": "./src",
     "experimentalDecorators": true,
-    "sourceMap": false,
-    "noEmitHelpers": false,
-    "noImplicitAny": true,
-    "declaration": true,
+    "moduleResolution": "node",
+    "rootDir": "./src",
+    "lib": ["es2015", "dom"],
     "skipLibCheck": true,
-    "stripInternal": true,
-    "noUnusedLocals": false,
-    "noUnusedParameters": false,
-    "lib": ["dom", "es6"],
-    "typeRoots": [
-      "../node_modules/@types"
-    ]
-  },
-  "exclude": [
-    "node_modules"
-  ],
-  "files": [
-    "./file-upload.module.ts",
-    "./index.ts"
-  ]
+    "types" : []
+  }
 }

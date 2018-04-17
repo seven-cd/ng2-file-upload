@@ -1,4 +1,5 @@
 "use strict";
+exports.__esModule = true;
 var FileDetails = (function () {
     function FileDetails(file) {
         this.file = file;

@@ -1,4 +1,5 @@
 "use strict";
+exports.__esModule = true;
 function isElement(node) {
     return !!(node && (node.nodeName || node.prop && node.attr && node.find));
 }

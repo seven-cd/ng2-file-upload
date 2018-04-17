@@ -19,3 +19,6 @@ npm-debug.log
 !/demo/components/file-upload/file-catcher.js
 
 .vscode
+
+/dist
+/build
