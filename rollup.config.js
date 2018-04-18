@@ -1,10 +1,15 @@
 export default { 
-    entry: '..dist/index.js',
-    dest: '../dist/bundles/file-upload.js',
-    sourceMap: false,
-    format: 'umd',
-    moduleName: 'ng.fileUpload',
-    globals: {
-        '@angular/core': 'ng.core'
-      }
+    input: 'dist/index.js',
+    output: {
+        file: 'dist/bundles/file-upload.umd.js',
+        name: 'ng.fileUpload',
+        moduleName: 'ng.fileUpload',
+        format: 'umd',
+        sourceMap: false,
+        globals: {
+            '@angular/core': 'ng.core',
+            '@angular/common': 'ng.common'
+        },
+        external: [ '@angular/core', '@angular/common' ]
+    }
 }
