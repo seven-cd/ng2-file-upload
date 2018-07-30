@@ -1,6 +1,6 @@
 {
   "name": "@nsoft/ng2-file-upload",
-  "version": "2.1.18",
+  "version": "2.1.20",
   "author": "Ivan Pandzic <pandzic.ivan@nsoft.ba>",
   "description": "Angular file upload directives",
   "scripts": {
@@ -21,7 +21,7 @@
     "url": "https://github.com/seven-cd/ng2-file-upload.git"
   },
   "publishConfig": {
-    "registry": "https://npm.nsoft.ba"
+    "registry": "https://registry.npmjs.org/"
   },
   "peerDependencies": {
     "@angular/core": "~4.0.0",
