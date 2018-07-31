@@ -1,6 +1,6 @@
 {
   "name": "@nsoft/ng2-file-upload",
-  "version": "2.1.20",
+  "version": "2.1.21",
   "author": "Ivan Pandzic <pandzic.ivan@nsoft.ba>",
   "description": "Angular file upload directives",
   "scripts": {
